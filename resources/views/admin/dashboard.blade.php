@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
+
 @section('content')
-    <!-- [ Main Content ] start -->
     <div class="row">
         <div class="col-12">
             <h2 class="mb-4">Beranda</h2>
         </div>
 
-        <!-- [ Jemaat Terdaftar ] start -->
+        <!-- Jemaat Terdaftar -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
@@ -23,27 +23,25 @@
                 </div>
             </div>
         </div>
-        <!-- [ Jemaat Terdaftar ] end -->
 
-        <!-- [ Absensi Jemaat Masuk ] start -->
+        <!-- Aspirasi Jemaat Masuk -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="mb-4">Absensi Jemaat Masuk</h6>
+                    <h6 class="mb-4">Aspirasi Jemaat Masuk</h6>
                     <div class="row d-flex align-items-center">
                         <div class="col-9">
-                            <h3 class="f-w-300 d-flex align-items-center m-b-0">{{ $absensiCount }}</h3>
+                            <h3 class="f-w-300 d-flex align-items-center m-b-0">{{ $aspirasiCount }}</h3>
                         </div>
                         <div class="col-3 text-end">
-                            <i class="feather icon-user-check f-28"></i>
+                            <i class="feather icon-message-circle f-28"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- [ Absensi Jemaat Masuk ] end -->
 
-        <!-- [ Jadwal Ibadah Minggu Ini ] start -->
+        <!-- Jadwal Ibadah Minggu Ini -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
@@ -59,9 +57,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ Jadwal Ibadah Minggu Ini ] end -->
 
-        <!-- [ Jadwal Pelayanan Minggu Ini ] start -->
+        <!-- Jadwal Pelayanan Minggu Ini -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
@@ -77,9 +74,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ Jadwal Pelayanan Minggu Ini ] end -->
 
-        <!-- [ Laporan Keuangan Terunggah ] start -->
+        <!-- Laporan Keuangan Terunggah -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
@@ -95,9 +91,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ Laporan Keuangan Terunggah ] end -->
 
-        <!-- [ Pengumuman Aktif ] start -->
+        <!-- Pengumuman Aktif -->
         <div class="col-md-6 col-xl-4">
             <div class="card">
                 <div class="card-body">
@@ -113,9 +108,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ Pengumuman Aktif ] end -->
 
-        <!-- [ Jadwal Pelayanan Mingguan Terdekat ] start -->
+        <!-- Jadwal Pelayanan Mingguan -->
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -157,9 +151,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ Jadwal Pelayanan Mingguan Terdekat ] end -->
 
-        <!-- [ Jadwal Pelayanan Kategorial Terdekat ] start -->
+        <!-- Jadwal Pelayanan Kategorial -->
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -203,7 +196,5 @@
                 </div>
             </div>
         </div>
-        <!-- [ Jadwal Pelayanan Kategorial Terdekat ] end -->
     </div>
-    <!-- [ Main Content ] end -->
 @endsection

@@ -12,20 +12,12 @@ class Jemaat extends Model
     protected $table = 'jemaat';
 
     protected $fillable = [
-        'nama',
-        'jenis_kelamin',
-        'tanggal_lahir',
-        'alamat',
-        'telepon',
-        'email',
-        'status_anggota',
-        'tanggal_bergabung',
-        'status_aktif'
+        'nama', 'alamat', 'telepon', 'email', 'tanggal_lahir',
+        'jenis_kelamin', 'status_pernikahan', 'foto'
     ];
 
-    // Relasi dengan Absensi
-    public function absensi()
+    public function aspirasi()
     {
-        return $this->hasMany(Absensi::class);
+        return $this->hasMany(AspirasiJemaat::class);
     }
 }

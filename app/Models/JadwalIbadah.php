@@ -23,9 +23,9 @@ class JadwalIbadah extends Model
         'status'
     ];
 
-    // Relasi dengan Absensi
+    // Relasi dengan Aspirasi
     public function absensi()
     {
-        return $this->hasMany(Absensi::class);
+        return $this->hasMany(Aspirasi::class);
     }
 }

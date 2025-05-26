@@ -1,50 +1,42 @@
 @extends('layouts.auth')
+
 @section('content')
+    <form action="{{ route('auth.login.verify') }}" method="POST" class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+        @csrf
+        <h2 class="text-2xl font-bold text-center mb-6">Login</h2>
 
-<div class="auth-main">
-    <div class="auth-wrapper v1">
-        <div class="auth-form">
-            <div class="position-relative my-5">
-                <div class="auth-bg">
-                    <span class="r"></span>
-                    <span class="r s"></span>
-                    <span class="r s"></span>
-                    <span class="r"></span>
-                </div>
-                <form action="{{route('auth.verify')}}" method="POST">
-                    @csrf
-                <div class="card mb-0">
-                    <div class="card-body">
-                        <div class="text-center">
-                            <a href="#"><img src="../assets/images/logo-dark.svg" alt="img" /></a>
-                        </div>
-                        <h4 class="text-center f-w-500 mt-4 mb-3">Login</h4>
-                        <div class="form-group mb-3">
-                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address" />
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="password" name="password" class="form-control" id="floatingInput1" placeholder="Password" />
-                        </div>
-                        <div class="d-flex mt-1 justify-content-between align-items-center">
-                            <div class="form-check">
-                                <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
-                                <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
-                            </div>
-                            <h6 class="text-secondary f-w-400 mb-0">Forgot Password?</h6>
-                        </div>
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary shadow px-sm-4">Login</button>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-4">
-                            <h6 class="f-w-500 mb-0">Don't have an Account?</h6>
-                            <a href="#" class="link-primary">Create Account</a>
-                        </div>
-                    </div>
-                </div>
-                </form>
+        @if(session('success'))
+            <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
+                {{ session('success') }}
             </div>
-        </div>
-    </div>
-</div>
+        @endif
 
+        @if(session('error'))
+            <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <!-- Input Email -->
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" name="email" required class="w-full border rounded px-3 py-2 focus:outline-none" placeholder="Email Address">
+        </div>
+
+        <!-- Input Password -->
+        <div class="mb-4">
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" name="password" required class="w-full border rounded px-3 py-2 focus:outline-none" placeholder="Password">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded">
+            Login
+        </button>
+
+        <!-- Register Link -->
+        <div class="text-center mt-4">
+            <p class="text-sm">Belum punya akun? <a href="{{ route('auth.register.index') }}" class="text-blue-600 font-bold">Daftar di sini</a></p>
+        </div>
+    </form>
 @endsection
