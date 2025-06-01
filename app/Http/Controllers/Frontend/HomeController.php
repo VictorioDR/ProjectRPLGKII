@@ -87,7 +87,7 @@ class HomeController extends Controller
         $keyword = $request->input('keyword');
 
         $searchableModels = [
-            'post' => ['model' => Post::class, 'field' => 'title'],
+            'post' => ['model' => post::class, 'field' => 'title'],
             'pengumuman' => ['model' => Pengumuman::class, 'field' => 'judul'],
         ];
 
