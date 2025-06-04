@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -197,9 +194,8 @@
                 <a href="{{ url('/') }}" class="navbar-brand">GKI Tanjung Selor</a>
 
                 <ul class="navbar-nav">
-                    <li><a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a>
-                    </li>
-                    <li><a href="{{ route('tentang.sejarah') }}" class="nav-link">TENTANG GEREJA</a></li>
+                    <li><a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a></li>
+                    <li><a href="{{ route('tentang.sejarah') }}" class="nav-link {{ Request::is('tentang/sejarah') ? 'active' : '' }}">TENTANG</a></li>
                     <li><a href="#" class="nav-link">PENGUMUMAN</a></li>
                 </ul>
 

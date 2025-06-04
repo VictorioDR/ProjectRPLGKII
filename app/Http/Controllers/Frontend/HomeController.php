@@ -52,10 +52,11 @@ class HomeController extends Controller
         ));
     }
 
-    public function sejarahGereja()
-    {
-        return $this->renderView('tentang.sejarah');
-    }
+public function sejarahGereja()
+{
+    return $this->renderView('tentang');
+}
+
 
     public function strukturPengurus()
     {

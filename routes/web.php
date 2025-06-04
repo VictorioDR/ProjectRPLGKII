@@ -37,6 +37,10 @@ Route::prefix('tentang')->group(function () {
     Route::get('/struktur', [HomeController::class, 'strukturPengurus'])->name('tentang.struktur');
 });
 
+Route::get('/tentang', function () {
+    return view('frontend.tentang');
+})->name('tentang');
+
 Route::prefix('pengumuman')->group(function () {
     Route::get('/', [HomeController::class, 'buletinGereja'])->name('pengumuman.buletin');
     Route::get('/ulang-tahun', [HomeController::class, 'ulangTahunJemaat'])->name('pengumuman.ulang_tahun');

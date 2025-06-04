@@ -91,15 +91,15 @@
                     <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('about')}}">About</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('tentang')}}">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('auth.index')}}">Login</a>
+                    <a class="nav-link active" href="{{ route('auth.login.index') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('register.index')}}">Register</a>
+                    <a class="nav-link active" href="{{ route('auth.register.index') }}">Register</a>
                 </li>
                </ul>
         </div>

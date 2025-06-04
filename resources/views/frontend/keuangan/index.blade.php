@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #a4a4a4 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -213,7 +213,7 @@
         }
 
         th {
-            background: linear-gradient(135deg, #4299e1, #667eea);
+            background: linear-gradient(135deg, #4299e1);
             color: white;
             padding: 1rem;
             text-align: left;
