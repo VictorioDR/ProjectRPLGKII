@@ -199,13 +199,13 @@
                 <ul class="navbar-nav">
                     <li><a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a>
                     </li>
-                    <li><a href="#" class="nav-link">TENTANG GEREJA</a></li>
+                    <li><a href="{{ route('tentang.sejarah') }}" class="nav-link">TENTANG GEREJA</a></li>
                     <li><a href="#" class="nav-link">PENGUMUMAN</a></li>
                 </ul>
 
                 <div class="auth-buttons">
-                    <a href="#" class="btn btn-outline">MASUK</a>
-                    <a href="#" class="btn btn-primary">DAFTAR</a>
+                    <a href="{{ route('auth.login.verify') }}" class="btn btn-outline">MASUK</a>
+                    <a href="{{ route('auth.register.process') }}" class="btn btn-primary">DAFTAR</a>
                 </div>
             </nav>
         </div>
