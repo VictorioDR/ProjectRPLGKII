@@ -205,7 +205,6 @@
 @endsection
 
 @section('content')
-<div class="black-bar"></div>
 
 <div class="container">
     <div class="info-section">
@@ -214,7 +213,7 @@
                 <h2>GKI Tanjung Selor</h2>
                 <p>Visi "Keluarga Bagi Allah"</p>
                 <p>Versi 18.0</p>
-                <a href="#" class="btn btn-secondary">Lihat Galeri</a>
+                <a href="" class="btn btn-secondary">Lihat Galeri</a>
             </div>
             <div class="info-image">
                 {{-- <img src="{{ asset('images/logo-gki.png') }}" alt="Logo GKI" class="church-logo"> --}}
@@ -226,8 +225,6 @@
         </div>
     </div>
 </div>
-
-<div class="black-bar"></div>
 
 <div class="container">
     <div class="cards-section">
