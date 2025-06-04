@@ -14,7 +14,7 @@ class LaporanKeuanganController extends Controller
         $endOfWeek = Carbon::now()->endOfWeek();
 
         $laporan = LaporanKeuangan::whereBetween('tanggal', [$today, $endOfWeek])->get();
-        return view('frontend.keuangan.index', compact('laporan'));
+        return view('frontend.keuangan.index', compact('laporSan'));
     }
 }
 

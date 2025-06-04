@@ -26,7 +26,7 @@
         <!-- Input Password -->
         <div class="mb-4">
             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-            <input type="password" name="password" required class="w-full border rounded px-3 py-2 focus:outline-none" placeholder="Password">
+            <input type="password" name="password" required cl  ass="w-full border rounded px-3 py-2 focus:outline-none" placeholder="Password">
         </div>
 
         <!-- Submit Button -->

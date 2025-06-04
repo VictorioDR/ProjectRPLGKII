@@ -16,12 +16,14 @@
         font-size: 2.5rem;
         margin-bottom: 1rem;
         font-weight: 300;
+        padding: 3.5rem 2rem;
     }
 
     .hero p {
         font-size: 1.2rem;
         margin-bottom: 2rem;
         opacity: 0.9;
+        padding: 3.5rem 2rem;
     }
 
     /* Info Section */
@@ -31,12 +33,14 @@
         margin: 2rem 0;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 3.5rem 2rem;
     }
 
     .info-content {
         display: flex;
         align-items: center;
         gap: 3rem;
+        padding: 3.5rem 2rem;
     }
 
     .info-text {
@@ -213,7 +217,7 @@
                 <h2>GKI Tanjung Selor</h2>
                 <p></p>
                 <p></p>
-                <a href="" class="btn btn-secondary">Lihat Galeri</a>
+                <a href="{{ route('galeri.public') }}" class="btn btn-secondary">Lihat Galeri</a>
             </div>
             <div class="info-image">
                 {{-- <img src="{{ asset('images/logo-gki.png') }}" alt="Logo GKI" class="church-logo"> --}}
@@ -231,7 +235,7 @@
         <div class="cards-grid">
             <!-- Jadwal Ibadah Card -->
             <div class="card">
-                <div class="card-image">📅</div>
+                <div class="card-image"></div>
                 <h3 class="card-title">Jadwal Ibadah Dalam Sepekan</h3>
                 <div class="card-content">
                     @if(isset($jadwalIbadah) && count($jadwalIbadah) > 0)
@@ -252,7 +256,7 @@
 
             <!-- Jadwal Pelayanan Card -->
             <div class="card">
-                <div class="card-image">🤝</div>
+                <div class="card-image"></div>
                 <h3 class="card-title">Jadwal Pelayanan Dalam Sepekan</h3>
                 <div class="card-content">
                     @if(isset($jadwalPelayanan) && count($jadwalPelayanan) > 0)
@@ -273,7 +277,7 @@
 
             <!-- Laporan Keuangan Card -->
             <div class="card">
-                <div class="card-image">💰</div>
+                <div class="card-image"></div>
                 <h3 class="card-title">Laporan Keuangan Dalam Sepekan</h3>
                 <div class="card-content">
                     @if(isset($laporanKeuangan) && count($laporanKeuangan) > 0)
@@ -289,7 +293,7 @@
                         <p>Belum ada laporan keuangan yang tersedia.</p>
                     @endif
                 </div>
-                <a href="#" class="btn btn-secondary">Lihat Semua</a>
+                <a href="{{ route('laporan.keuangan') }}" class="btn btn-secondary">Lihat Semua</a>
             </div>
         </div>
     </div>

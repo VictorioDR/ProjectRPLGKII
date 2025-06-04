@@ -29,7 +29,7 @@
         </div>
     </section>
 
-{{--    <section class="container py-6">--}}
+   {{-- <section class="container py-6">--}}
 {{--        <div class="row">--}}
 {{--            @foreach($posts as $post)--}}
 {{--                <div class="card m-2" style="width: 18rem;">--}}
@@ -43,7 +43,7 @@
 {{--                </div>--}}
 {{--            @endforeach--}}
 {{--        </div>--}}
-{{--    </section>--}}
+{{--    </section> --}}
 
 @endsection
 
