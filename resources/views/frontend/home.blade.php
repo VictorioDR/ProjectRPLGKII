@@ -211,8 +211,8 @@
         <div class="info-content">
             <div class="info-text">
                 <h2>GKI Tanjung Selor</h2>
-                <p>Visi "Keluarga Bagi Allah"</p>
-                <p>Versi 18.0</p>
+                <p></p>
+                <p></p>
                 <a href="" class="btn btn-secondary">Lihat Galeri</a>
             </div>
             <div class="info-image">
