@@ -213,7 +213,7 @@
         }
 
         th {
-            background: linear-gradient(135deg, #4299e1);
+            background: linear-gradient (135deg, #4299e1);
             color: white;
             padding: 1rem;
             text-align: left;

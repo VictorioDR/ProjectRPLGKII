@@ -1,4 +1,4 @@
-<nav class="pc-sidebar">
+{{-- <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <!-- Logo dan Judul -->
         <div class="text-center py-4">
@@ -54,4 +54,4 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> --}}

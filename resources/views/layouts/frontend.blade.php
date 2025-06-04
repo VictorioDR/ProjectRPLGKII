@@ -34,19 +34,117 @@
     </style>
 
     <style>
-        .navbar-custom {
-            background-color: #0e0095; /* ubah sesuai keinginan */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0;
         }
 
-        .navbar-custom .nav-link{
-            color: white !important; /* Warna teks */
-            transition:color 0.5s ease;
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1500px;
+            margin: 0 auto;
         }
 
-        .navbar-custom .nav-link:hover {
-            color: red !important; /* Warna hover, misal kuning */
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
+        .navbar-nav {
+            display: flex;
+            flex-direction: row; /* pastikan horizontal */
+            align-items: center;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #275fae;
+            background: #f0f4fa;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #275fae;
+            border: 2px solid #275fae;
+        }
+
+        .btn-outline:hover {
+            background: #275fae;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: #275fae;
+            color: #fff;
+            border: 2px solid #275fae;
+        }
+
+        .btn-primary:hover {
+            background: #183e7a;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .auth-buttons {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+
+    <style>
         /*Untuk Footer Paling Bawah*/
         .footer-copyright {
             background-color: #0e0095;
@@ -79,29 +177,17 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-        <a class="nav-link" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('tentang')}}">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('auth.login.index') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('auth.register.index') }}">Register</a>
-                </li>
-               </ul>
+<nav class="navbar">
+    <div class="container">
+        <a href="{{ url('/') }}" class="navbar-brand">GKI Tanjung Selor</a>
+        <ul class="navbar-nav">
+            <li><a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a></li>
+            <li><a href="{{ route('tentang') }}" class="nav-link {{ Request::is('tentang') ? 'active' : '' }}">TENTANG</a></li>
+            <li><a href="{{ route('pengumuman.buletin') }}" class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">PENGUMUMAN</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="{{ route('auth.login.verify') }}" class="btn btn-outline">MASUK</a>
+            <a href="{{ route('auth.register.process') }}" class="btn btn-primary">DAFTAR</a>
         </div>
     </div>
 </nav>
