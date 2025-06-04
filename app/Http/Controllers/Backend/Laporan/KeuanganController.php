@@ -17,7 +17,10 @@ class KeuanganController extends Controller
     public function index()
     {
         $laporan = LaporanKeuangan::orderByDesc('tanggal')->get();
-        return view('keuangan.index', compact('laporan'));
+        $totalPemasukan = $laporan->where('jenis', 'pemasukan')->sum('jumlah');
+        $totalPengeluaran = $laporan->where('jenis', 'pengeluaran')->sum('jumlah');
+
+        return view('keuangan.index', compact('laporan', 'totalPemasukan', 'totalPengeluaran'));
     }
 
     public function create()
@@ -81,5 +84,10 @@ class KeuanganController extends Controller
             ->get();
 
         return view('keuangan.index', compact('laporan'));
+    }
+    public function export()
+    {
+        // Implementasi export Excel menggunakan Laravel Excel
+        return Excel::download(new LaporanKeuanganExport, 'laporan-keuangan.xlsx');
     }
 }

@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 | ROUTES PUBLIK
 |--------------------------------------------------------------------------
 */
-
+Route::get('/keuangan/export', [KeuanganController::class, 'export'])->name('keuangan.export');
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::prefix('tentang')->group(function () {
