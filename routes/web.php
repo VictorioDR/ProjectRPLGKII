@@ -19,13 +19,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
-//Auth
-
-// Frontend
-
-// Backend
-
-
 /*
 |--------------------------------------------------------------------------
 | ROUTES PUBLIK
@@ -38,7 +31,6 @@ Route::prefix('tentang')->group(function () {
     Route::get('/sejarah', [HomeController::class, 'sejarahGereja'])->name('tentang.sejarah');
     Route::get('/struktur', [HomeController::class, 'strukturPengurus'])->name('tentang.struktur');
 });
-
 Route::get('/tentang', function () {
     return view('frontend.tentang');
 })->name('tentang');
@@ -50,21 +42,11 @@ Route::prefix('pengumuman')->group(function () {
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.public');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
-
 Route::get('/jadwal-ibadah', [JadwalIbadahController::class, 'index'])->name('jadwalibadah.index');
 Route::get('/jadwal-pelayanan', [HomeController::class, 'jadwalPelayananMingguan'])->name('jadwal.pelayanan');
 Route::get('/laporan-keuangan', [HomeController::class, 'laporanKeuanganMingguan'])->name('laporan.keuangan');
-
 Route::get('/aspirasi', [AspirasiJemaatFrontend::class, 'formPublic'])->name('aspirasi.form');
 Route::post('/aspirasi', [AspirasiJemaatFrontend::class, 'storePublic'])->name('aspirasi.store');
-
-Route::middleware('auth')->post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-
-Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/profil', [UserProfileController::class, 'show'])->name('user.profile');
-    Route::get('/profil/edit', [UserProfileController::class, 'edit'])->name('user.profile.edit');
-    Route::put('/profil', [UserProfileController::class, 'update'])->name('user.profile.update');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +54,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('auth.index');
+    Route::get('/login', [LoginController::class, 'index'])->name('auth.login.index');
     Route::post('/login', [LoginController::class, 'verify'])->name('auth.login.verify');
 
     // Register Routes
@@ -90,20 +72,27 @@ Route::middleware('auth')->post('/logout', [LoginController::class, 'logout'])->
 
 /*
 |--------------------------------------------------------------------------
+| USER PROFILE (AUTH)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/profil', [UserProfileController::class, 'show'])->name('user.profile');
+    Route::get('/profil/edit', [UserProfileController::class, 'edit'])->name('user.profile.edit');
+    Route::put('/profil', [UserProfileController::class, 'update'])->name('user.profile.update');
+});
+
+/*
+|--------------------------------------------------------------------------
 | BACKEND - ADMIN (DASHBOARD)
 |--------------------------------------------------------------------------
 */
-
 Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-
     Route::get('/profile', [AdminProfileController::class, 'show'])->name('dashboard.profile');
     Route::get('/profile/edit', [AdminProfileController::class, 'edit'])->name('dashboard.profile.edit');
     Route::put('/profile', [AdminProfileController::class, 'update'])->name('dashboard.profile.update');
-
     Route::resource('aspirasi', AspirasiJemaatBackend::class);
     Route::patch('/aspirasi/{id}/status', [AspirasiJemaatBackend::class, 'updateStatus'])->name('aspirasi.updateStatus');
-
     Route::resource('jadwal-ibadah', IbadahController::class);
     Route::resource('keuangan', KeuanganController::class);
     Route::resource('pengumuman', PengumumanController::class);
@@ -114,14 +103,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function (
 | FILE STORAGE (akses file upload/gambar)
 |--------------------------------------------------------------------------
 */
-
 Route::get('/storage/{folder}/{filename}', function ($folder, $filename) {
     $path = storage_path('app/public/' . $folder . '/' . $filename);
-
     if (!File::exists($path)) abort(404);
-
     $file = File::get($path);
     $type = File::mimeType($path);
-
     return Response::make($file, 200)->header("Content-Type", $type);
 })->where('filename', '.*')->name('storage.file');

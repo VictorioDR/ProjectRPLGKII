@@ -20,6 +20,12 @@ return new class extends Migration
             $table->string('pengkhotbah');
             $table->string('tempat');
             $table->string('multimedia');
+            $table->string('deskripsi')->nullable();
+            $table->string('judul')->nullable();
+            $table->string('status')->nullable();
+            $table->string('tema')->nullable();
+            $table->timestamp('waktu_mulai')->nullable();
+            $table->timestamp('waktu_selesai')->nullable();
             $table->timestamps();
         });
     }
