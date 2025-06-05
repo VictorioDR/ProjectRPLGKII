@@ -70,7 +70,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('auth.login.index');
+    Route::get('/login', [LoginController::class, 'index'])->name('auth.index');
     Route::post('/login', [LoginController::class, 'verify'])->name('auth.login.verify');
 
     // Register Routes
