@@ -9,22 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('jadwal_ibadah', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
             $table->date('tanggal');
-            $table->time('waktu_mulai');
-            $table->time('waktu_selesai');
+            $table->string('wl');
+            $table->string('singers');
+            $table->string('tim_musik');
+            $table->string('pengkhotbah');
             $table->string('tempat');
-            $table->string('tema')->nullable();
-            $table->string('pengkhotbah')->nullable();
-            $table->text('deskripsi')->nullable(); // sesuai controller
-            $table->enum('status', ['active', 'cancelled', 'completed'])->default('active');
+            $table->string('multimedia');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

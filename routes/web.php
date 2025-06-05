@@ -11,7 +11,9 @@ use App\Http\Controllers\Backend\Jadwal\IbadahController;
 use App\Http\Controllers\Backend\Laporan\KeuanganController;
 use App\Http\Controllers\Backend\Manajemen\ProfileController as AdminProfileController;
 use App\Http\Controllers\Frontend\AspirasiJemaatController as AspirasiJemaatFrontend;
+use App\Http\Controllers\Frontend\GaleriController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\JadwalIbadahController;
 use App\Http\Controllers\Frontend\ProfileController as UserProfileController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
@@ -46,10 +48,10 @@ Route::prefix('pengumuman')->group(function () {
     Route::get('/ulang-tahun', [HomeController::class, 'ulangTahunJemaat'])->name('pengumuman.ulang_tahun');
 });
 
-Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri.public');
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.public');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
-Route::get('/jadwal-ibadah', [HomeController::class, 'jadwalIbadahMingguan'])->name('jadwal.ibadah');
+Route::get('/jadwal-ibadah', [JadwalIbadahController::class, 'index'])->name('jadwalibadah.index');
 Route::get('/jadwal-pelayanan', [HomeController::class, 'jadwalPelayananMingguan'])->name('jadwal.pelayanan');
 Route::get('/laporan-keuangan', [HomeController::class, 'laporanKeuanganMingguan'])->name('laporan.keuangan');
 

@@ -14,7 +14,10 @@ class Galeri extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
-        'gambar', // Lokasi/URL gambar
-        'status', // Contoh: aktif/non-aktif
+        'gambar',
+        'status',
+        'created_at',
+        'updated_at',
+
     ];
 }

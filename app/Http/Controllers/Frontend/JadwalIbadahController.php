@@ -10,10 +10,14 @@ class JadwalIbadahController extends Controller
 {
     public function index()
     {
+        // Ambil hari ini dan akhir minggu
         $today = Carbon::today();
         $endOfWeek = Carbon::now()->endOfWeek();
 
-        $jadwal = JadwalIbadah::whereBetween('tanggal', [$today, $endOfWeek])->get();
-        return view('frontend.jadwal.ibadah', compact('jadwal'));
+        // Filter jadwal ibadah yang berada antara hari ini hingga akhir pekan
+        $jadwal_ibadah = JadwalIbadah::whereBetween('tanggal', [$today, $endOfWeek])->get();
+
+        // Kirim data ke view
+        return view('frontend.jadwal-ibadah', compact('jadwal_ibadah'));
     }
 }

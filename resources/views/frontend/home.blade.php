@@ -253,7 +253,7 @@
                         <p>Belum ada jadwal ibadah yang tersedia.</p>
                     @endif
                 </div>
-                <a href="#" class="btn btn-secondary">Lihat Semua</a>
+                <a href="{{ route('jadwalibadah.index') }}" class="btn btn-secondary">Lihat Semua</a>
             </div>
 
             <!-- Jadwal Pelayanan Card -->

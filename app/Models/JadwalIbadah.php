@@ -12,20 +12,17 @@ class JadwalIbadah extends Model
     protected $table = 'jadwal_ibadah';
 
     protected $fillable = [
-        'judul',
         'tanggal',
-        'waktu_mulai',
-        'waktu_selesai',
-        'tempat',
-        'tema',
+        'wl',
+        'singers',
+        'tim_musik',
         'pengkhotbah',
-        'deskripsi',
-        'status'
+        'tempat',
+        'multimedia',
     ];
 
-    // Relasi dengan Aspirasi
-    public function absensi()
-    {
-        return $this->hasMany(Aspirasi::class);
-    }
+    protected $casts = [
+        'singers' => 'array',
+        'tim_musik' => 'array',
+    ];
 }
